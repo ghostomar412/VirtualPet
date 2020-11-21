@@ -1,4 +1,4 @@
-var Doge,happyDog
+var dogs,happyDog
 var foodS,foodStock
 var database
 
@@ -11,9 +11,9 @@ function preload()
 function setup() {
 	createCanvas(500,500);
   database=firebase.database();
-  Doge=createSprite(400,350)
-  Doge.addImage("dogz",dog)
-  Doge.scale=0.3
+  dogs=createSprite(400,350)
+  dogs.addImage(dog)
+  dogs.scale=0.3
   foodStock=database.ref('food');
   foodStock.on("value",readStock)
 }
@@ -26,7 +26,7 @@ text("Note: Press Up_ARROW Key to Feed Ollie Milk!",10,20)
 
   if(keyWentDown(UP_ARROW)){
     writeStock(foodS)
-    Doge.addImage("fed",happyDog);
+    dogs.addImage(happyDog);
   }
   drawSprites();
 }
